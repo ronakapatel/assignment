@@ -1,0 +1,17 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Recent Posts
+  </h1>
+</div>
+<mat-list>
+  <mat-list-item *ngFor="let post of posts" (click)="openPostDialog(post)">
+    <h4 mat-line><strong>Title:</strong> {{post.title}}</h4>
+    <p mat-line><strong>Url:</strong> {{post.url}} </p>
+    <p mat-line><strong>Created At:</strong> {{post.created_at | date}} </p>
+    <p mat-line><strong>Author:</strong> {{post.author}} </p>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>
+
+<!--<router-outlet></router-outlet>-->
