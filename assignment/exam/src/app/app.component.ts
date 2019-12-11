@@ -14,6 +14,7 @@ export interface DialogData {
 export class AppComponent {
   title = 'exam';
   posts:any = [];
+  search: string;
   constructor(private PostService: PostService, public dialog: MatDialog) { }
   ngOnInit() {
     this.getPosts();
@@ -28,7 +29,6 @@ export class AppComponent {
   openPostDialog(post): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '600px',
-      disableClose: true,
       data: {data: post}
     });
   }
