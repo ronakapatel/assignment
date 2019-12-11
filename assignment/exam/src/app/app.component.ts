@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import {PostService} from './services/post.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { interval } from 'rxjs';
 
 export interface DialogData {
   data: string;
@@ -20,9 +21,11 @@ export class AppComponent {
     this.getPosts();
   }
   getPosts(): void {
-    this.PostService.getPosts().subscribe(res => {
-      console.log(res,'test');
-      this.posts = res.hits;
+    interval(1000).subscribe(x => {
+      this.PostService.getPosts().subscribe(res => {
+        console.log(res,'test');
+        this.posts = res.hits;
+      });
     });
   }
 
